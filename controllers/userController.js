@@ -16,8 +16,8 @@ exports.createUser=(req,res)=>{
 }
 
 exports.updateUser=(req,res)=>{
-    const {amount,ids}=req.body;
-    connection.query('UPDATE enrollment_bills SET course_program=?  WHERE id=? ',[amount,ids],(err,result)=>{
+    const {course,ids}=req.body;
+    connection.query('UPDATE enrollment_bills SET course_program=?  WHERE id=? ',[course,ids],(err,result)=>{
         if(err) throw err;
         if(result.affectedRows>0)
             res.json({message:'Course program updated successfully'});
